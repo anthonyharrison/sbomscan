@@ -1,0 +1,4 @@
+lib4sbom >=0.10.4
+requests
+sbom2doc
+tldextract
