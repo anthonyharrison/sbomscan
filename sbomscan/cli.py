@@ -3,13 +3,12 @@
 
 import argparse
 import os
-import platform
 import sys
 import textwrap
 from collections import ChainMap
 
-from sbomscan.version import VERSION
 from sbomscan.scanner import SBOMScanner
+from sbomscan.version import VERSION
 
 # CLI processing
 
@@ -80,15 +79,24 @@ def main(argv=None):
 
     sbom_name = args["input_file"]
 
-    # Must gave both a SBOM and an enrichment file
+    # Must specify a SBOM file
     if sbom_name == "":
-        print ("[ERROR] Must specify a SBOM file")
+        print("[ERROR] Must specify a SBOM file")
         sys.exit(1)
 
     # Check the SBOM file exist
+    if not os.path.exists(sbom_name) or os.path.getsize(sbom_name) == 0:
+        print(f"[ERROR] SBOM file {sbom_name} not found or empty")
+        sys.exit(1)
+
+    if args["output_file"] != "" and args["format"] == "text":
+        print("[ERROR] Text format not supported for output file.")
+        sys.exit(1)
 
     if os.getenv("VULNCODE") is None:
-        print("[ERROR] API key not found. Get an API key here: https://public.vulnerablecode.io/account/request_api_key/")
+        print(
+            "[ERROR] API key not found. Get an API key here: https://public.vulnerablecode.io/account/request_api_key/"
+        )
         sys.exit(1)
 
     if args["debug"]:
@@ -99,9 +107,12 @@ def main(argv=None):
 
     sbom_scanner = SBOMScanner(url=args["url"], debug=args["debug"])
     sbom_scanner.process_sbom(sbom_file=sbom_name)
-    sbom_scanner.generate_report(output_file=args["output_file"], output_format=args["format"])
+    sbom_scanner.generate_report(
+        output_file=args["output_file"], output_format=args["format"]
+    )
 
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())
