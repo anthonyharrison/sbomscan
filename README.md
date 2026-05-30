@@ -1,6 +1,6 @@
 # SBOMSCAN
 
-The SBOMSCAN is a free, open source tool to scan a SBOM (Software Bill of Materials) in either [SPDX](https://www.spdx.org) and [CycloneDX](https://www.cyclonedx.org) format for reported vulnerabilities.It identifies vulnerabilities with any compoonent in the SBOM which has a valid PURL identifier..
+The SBOMSCAN is a free, open source tool to scan a SBOM (Software Bill of Materials) in either [SPDX](https://www.spdx.org) and [CycloneDX](https://www.cyclonedx.org) format for reported vulnerabilities. It identifies vulnerabilities with any compoonent in the SBOM which has a valid PURL identifier.
 
 The application uses the (Vulnerablecode database)[https://public.vulnerablecode.io/].
 
@@ -55,6 +55,7 @@ The `--output-file` option is used to control the destination of the output gene
 
 ## Example output
 
+```bash
 ╭───────────────────╮
 │ SBOM Scan Summary │
 ╰───────────────────╯
@@ -77,6 +78,7 @@ The `--output-file` option is used to control the destination of the output gene
 │ axios            │ 1.11.0  │ GHSA-43fc-jf86-j433                      │ GITHUB │ 7.5 (v3.1) │ HIGH     │ 0.00067          │ 0.20669         │
 │ fast-xml-parser  │ 4.4.1   │ CVE-2026-27942                           │ NVD    │ 2.7 (v4)   │ LOW      │ 0.00056          │ 0.17594         │
 └──────────────────┴─────────┴──────────────────────────────────────────┴────────┴────────────┴──────────┴──────────────────┴─────────────────┘
+```
 
 ## Example JSON format
 
