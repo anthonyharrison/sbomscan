@@ -170,7 +170,7 @@ Licenced under the Apache 2.0 Licence.
 
 This tool only processes components in the SBOM with a valid PURL identifier.
 
-Network access is required to access the vulnerability database. If this is not available, a limited amount of package metadata will be included.
+Network access is required to access the vulnerability database unless the URL endpoint is specified to reference a local database instance.
 
 ## Feedback and Contributions
 
