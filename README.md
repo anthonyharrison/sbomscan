@@ -1,4 +1,4 @@
-# SBOM4Python
+# SBOMSCAN
 
 The SBOMSCAN is a free, open source tool to scan a SBOM (Software Bill of Materials) in either [SPDX](https://www.spdx.org) and [CycloneDX](https://www.cyclonedx.org) format for reported vulnerabilities.It identifies vulnerabilities with any compoonent in the SBOM which has a valid PURL identifier..
 
@@ -14,7 +14,7 @@ Alternatively, just clone the repo and install dependencies using the following 
 
 `pip install -U -r requirements.txt`
 
-The tool requires Python 3 (3.7+). It is recommended to use a virtual python environment especially
+The tool requires Python 3 (3.10+). It is recommended to use a virtual python environment especially
 if you are using different versions of python. `virtualenv` is a tool for setting up virtual python environments which
 allows you to have all the dependencies for the tool set up in a single environment, or have different environments set
 up for testing using different versions of Python.
